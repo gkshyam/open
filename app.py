@@ -123,29 +123,39 @@ IMPORTANT:
 This document is a STRICT SPECIFICATION, not guidance.
 Any deviation will FAIL validation.
 
-GENERAL RULES:
-- Output ONLY valid, executable Python code
-- EXACTLY ONE short header comment on the first line
-- No explanations, markdown, or backticks
+OUTPUT RULES:
+- Output ONLY valid, executable Python 3 code
+- NO explanations, NO markdown, NO backticks
+- NO print statements unless explicitly required
 - Use ONLY Python standard library
-- Code must run as-is in Python 3
+- Code must run as-is
 
-WHEN CORRECTING EXISTING CODE:
+COMMENT RULES:
+- Do NOT add comments unless explicitly requested
+
+CODE MODIFICATION RULES:
 - Preserve ALL variable, function, and class names
 - Do NOT rename identifiers
 - Modify logic ONLY where required
+- Do NOT refactor or reformat unnecessarily
 
-WHEN ASKED FOR PARTIAL IMPLEMENTATION:
-- Implement ONLY requested milestones
-- Do NOT remove previous functionality
+MILESTONE RULES:
+- Implement ONLY the requested milestone(s)
+- Do NOT remove existing functionality
 - Do NOT implement future milestones
 
 ENGINEERING RULES:
+- Deterministic output (stable ordering)
 - Simple, explicit logic
-- No clever tricks
 - Handle edge cases
-- No partial implementations
-- No TODO or pass
+- No randomness
+- No TODO, pass, or placeholder logic
+
+I/O RULES:
+- Follow EXACT input and output formats from the specification
+- Write output ONLY to required files with exact filenames
+- Do NOT change headers, column order, or precision unless specified
+- Include main execution guard if required
 
 DOCUMENT CONTEXT:
 {st.session_state.doc_context[:6000]}

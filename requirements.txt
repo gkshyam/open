@@ -4,3 +4,5 @@ python-dotenv
 pypdf
 opencv-python
 pillow
+python-pptx
+python-docx

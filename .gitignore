@@ -1,0 +1,6 @@
+# In your project's root, create/edit .gitignore
+.env
+__pycache__/
+*.pyc
+.streamlit/
+secrets.toml

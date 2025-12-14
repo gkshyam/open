@@ -7,6 +7,7 @@ from pptx import Presentation
 from docx import Document
 import io
 import os
+import json   # ← Add this line
 
 # -------------------- LOAD API --------------------
 load_dotenv()
@@ -189,17 +190,29 @@ USER REQUEST:
                 except SyntaxError:
                     st.error("Failed validation")
 
-        # -------- COPY TO CLIPBOARD ONLY --------
+                # -------- COPY TO CLIPBOARD (WORKING 100%) --------
         if st.session_state.generated_code:
+            st.markdown("### ✅ Generated Code")
+            st.code(st.session_state.generated_code, language="python")
+
+            # This is the working copy button
             components.html(
                 f"""
+                <script>
+                function copyCode() {{
+                    navigator.clipboard.writeText({json.dumps(st.session_state.generated_code)});
+                    const btn = document.getElementById('copyBtn');
+                    btn.innerHTML = '✅ Copied!';
+                    setTimeout(() => btn.innerHTML = '📋 Copy Code', 2000);
+                }}
+                </script>
                 <div class="copy-btn">
-                    <button onclick="navigator.clipboard.writeText({repr(st.session_state.generated_code)})">
-                        📋 OK
+                    <button id="copyBtn" onclick="copyCode()">
+                        📋 Copy Code
                     </button>
                 </div>
                 """,
-                height=60
+                height=100
             )
 
 # -------------------- MAIN CONTENT --------------------

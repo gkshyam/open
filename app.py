@@ -191,9 +191,9 @@ USER REQUEST:
                     st.error("Failed validation")
 
                 # -------- COPY TO CLIPBOARD (WORKING 100%) --------
-        if st.session_state.generated_code:
-            st.markdown("### ✅ Generated Code")
-            st.code(st.session_state.generated_code, language="python")
+        # if st.session_state.generated_code:
+        #     st.markdown("### ✅ Generated Code")
+        #     st.code(st.session_state.generated_code, language="python")
 
             # This is the working copy button
             components.html(
@@ -202,13 +202,13 @@ USER REQUEST:
                 function copyCode() {{
                     navigator.clipboard.writeText({json.dumps(st.session_state.generated_code)});
                     const btn = document.getElementById('copyBtn');
-                    btn.innerHTML = '✅ Copied!';
-                    setTimeout(() => btn.innerHTML = '📋 Copy Code', 2000);
+                    btn.innerHTML = 'ok..!';
+                    setTimeout(() => btn.innerHTML = 'OK', 2000);
                 }}
                 </script>
                 <div class="copy-btn">
                     <button id="copyBtn" onclick="copyCode()">
-                        📋 Copy Code
+                        OK!
                     </button>
                 </div>
                 """,
